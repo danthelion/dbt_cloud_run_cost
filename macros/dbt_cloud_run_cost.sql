@@ -14,6 +14,6 @@
 
     {% set cost = 0.01 * successful_model_count.value %}
 
-    {{ log("This run cost you $" ~ cost ~ " based on " ~ successful_model_count.value ~ " successully run models.", info=True) }}
+    {{ print("This run cost you $" ~ cost ~ " based on " ~ successful_model_count.value ~ " successully run models.") }}
 
 {% endmacro %}

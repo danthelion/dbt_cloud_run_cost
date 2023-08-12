@@ -1,19 +1,23 @@
 {% macro calculate_run_cost(results) %}
 
-    {% set successful_model_count = namespace(value=0) %}
+    {% if execute %}
 
-        {% for result in results %}
+        {% set successful_model_count = namespace(value=0) %}
 
-            {% if result.status == 'success' %}
+            {% for result in results %}
 
-                {% set successful_model_count.value = successful_model_count.value + 1 %}
+                {% if result.status == 'success' %}
 
-            {% endif %}
+                    {% set successful_model_count.value = successful_model_count.value + 1 %}
 
-        {% endfor %}
+                {% endif %}
 
-    {% set cost = 0.01 * successful_model_count.value %}
+            {% endfor %}
 
-    {{ print("This run cost you $" ~ cost ~ " based on " ~ successful_model_count.value ~ " successully run models.") }}
+        {% set cost = 0.01 * successful_model_count.value %}
+
+        {{ print("This run cost you $" ~ cost ~ " based on " ~ successful_model_count.value ~ " successully run models.") }}
+
+    {% endif %}
 
 {% endmacro %}

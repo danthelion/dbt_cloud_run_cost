@@ -9,7 +9,7 @@ Add the following to your `packages.yml` file:
 ```yaml
 packages:
   - package: danthelion/dbt_cloud_run_cost
-    version: ["0.1.0"]
+    version: ["0.3.0"]
 ```
 
 ## Usage

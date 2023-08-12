@@ -1,6 +1,9 @@
-{% macro calculate_run_cost(results) %}
+{% macro calculate_run_cost(results, dbt_cloud_only=False) %}
 
-    {% if execute %}
+    {% set is_dbt_cloud = env_var('DBT_ENV', '') %}
+    {% set calculate = not dbt_cloud_only or is_dbt_cloud %}
+
+    {% if calculate and execute %}
 
         {% set successful_model_count = namespace(value=0) %}
 
@@ -16,7 +19,7 @@
 
         {% set cost = 0.01 * successful_model_count.value %}
 
-        {{ print("This run cost you $" ~ cost ~ " based on " ~ successful_model_count.value ~ " successully run models.") }}
+        {{ print("This run cost $" ~ cost ~ " based on " ~ successful_model_count.value ~ " successully run models.") }}
 
     {% endif %}
 

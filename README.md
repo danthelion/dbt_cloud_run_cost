@@ -9,8 +9,10 @@ Add the following to your `packages.yml` file:
 ```yaml
 packages:
   - package: danthelion/dbt_cloud_run_cost
-    version: ["0.3.0"]
+    version: ["0.4.0"]
 ```
+
+After that, run `dbt deps` to install the package.
 
 ## Usage
 
@@ -18,8 +20,13 @@ Call the macro as a post-hook in your `dbt_project.yml` file:
 
 ```yaml
 on-run-end:
-  - "{{ dbt_cloud_run_cost.calculate_run_cost(results) }}"
+  - "{{ dbt_cloud_run_cost.calculate_run_cost(results, False) }}"
 ```
+
+Function arguments:
+
+- `results`: the `results` variable that is passed to the `on-run-end` hook.
+- `dbt_cloud_only`: a boolean flag that restricts calculations to only dbt Cloud runs. Defaults to `False`.
 
 This is how it will look like after you run a job:
 

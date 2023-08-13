@@ -1,6 +1,6 @@
 # dbt_cloud_run_cost
 
-> This run cost $0.78 based on 78 successfully run models.
+> This run cost $0.78 based on 78 successfully executed models.
 
 This package contains a macro that calculates the cost of successfully created models if they were run via dbt Cloud.
 
@@ -36,7 +36,7 @@ This is how it will look like after you run a job:
 08:30:51  
 08:30:51  Running 1 on-run-end hook
 08:30:51
-08:30:51  This run cost $0.78 based on 78 successfully run models.
+08:30:51  This run cost $0.78 based on 78 successfully executed models.
 08:30:51
 08:30:51  1 of 1 START hook: analytics.on-run-end.0 ......................... [RUN]
 08:30:51  1 of 1 OK hook: analytics.on-run-end.0 ............................ [OK in 0.00s]

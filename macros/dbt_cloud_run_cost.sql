@@ -19,7 +19,7 @@
 
         {% set cost = 0.01 * successful_model_count.value %}
 
-        {{ print("This run cost $" ~ cost ~ " based on " ~ successful_model_count.value ~ " successully run models.") }}
+        {{ print("This run cost $" ~ cost ~ " based on " ~ successful_model_count.value ~ " successfully run models.") }}
 
     {% endif %}
 
